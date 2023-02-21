@@ -1,8 +1,10 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
+import Footer from "./components/Footer";
 import Navbar from "./components/Navbar";
-import AddBookPage from "./pages/AddBookPage";
 import HomePage from "./pages/HomePage";
+import AddBookPage from "./pages/AddBookPage";
+import AboutPage from "./pages/AboutPage";
 
 function App() {
   return (
@@ -14,8 +16,12 @@ function App() {
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/add" element={<AddBookPage />} />
+          <Route path="/about" element={<AboutPage />} />
         </Routes>
       </main>
+      <footer>
+        <Footer />
+      </footer>
     </>
   );
 }

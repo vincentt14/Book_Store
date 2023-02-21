@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import Lottie from "react-lottie";
-import { Typewriter } from "react-simple-typewriter";
+// import { Typewriter } from "react-simple-typewriter";
 import animationData from "../lotties/ideas-into-book.json";
 
 const HomePage = () => {
@@ -29,7 +29,7 @@ const HomePage = () => {
             <h2 className="font-light text-primary text-lg mb-5 lg:text-2xl mt-2">
               You can{" "}
               <span style={{ color: "black", fontWeight: "400" }}>
-                <Typewriter loop cursor cursorStyle="|" typeSpeed={70} deleteSpeed={70} delaySpeed={1500} words={["find your favourite book.", "review a book.", "rate a book.", "wishlist a book.", "add a book."]} />
+                {/* <Typewriter loop cursor cursorStyle="|" typeSpeed={70} deleteSpeed={70} delaySpeed={1500} words={["find your favourite book.", "review a book.", "rate a book.", "wishlist a book.", "add a book."]} /> */}
               </span>
             </h2>
 

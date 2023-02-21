@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 
 const Navbar = () => {
@@ -27,8 +27,8 @@ const Navbar = () => {
         <div className="container">
           <div className="flex items-center justify-between relative">
             <div className="px-4">
-              <Link to="home" className="cursor-pointer text-primary font-semibold text-lg block py-6 hover:text-secondary">
-                Book<span className="text-secondary hover:text-primary">N</span>Store
+              <Link to="home" className="cursor-pointer text-primary font-semibold text-lg block py-6">
+                Book<span className="text-secondary ">N</span>Store
               </Link>
             </div>
             <div className="flex items-center px-4">
