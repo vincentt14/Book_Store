@@ -57,12 +57,12 @@ const Navbar = () => {
                     </Link>
                   </li>
                   <li className="group">
-                    <Link to="project" className="cursor-pointer text-primary text-base py-2 mx-8 flex group-hover:text-secondary" onClick={onToggleClick}>
+                    <Link to="/wishlist" className="cursor-pointer text-primary text-base py-2 mx-8 flex group-hover:text-secondary" onClick={onToggleClick}>
                       Wishlist
                     </Link>
                   </li>
                   <li className="group">
-                    <Link to="contact" className="cursor-pointer text-primary text-base py-2 mx-8 flex group-hover:text-secondary" onClick={onToggleClick}>
+                    <Link to="/about" className="cursor-pointer text-primary text-base py-2 mx-8 flex group-hover:text-secondary" onClick={onToggleClick}>
                       About
                     </Link>
                   </li>

@@ -39,7 +39,7 @@ const Footer = () => {
               <h3 className="font-semibold text-xl text-white mb-5 selection:bg-blue-500 selection:text-blue-100">About</h3>
               <li>
                 <Link to="/about" className="inline-block text-base hover:text-blue-500 mb-2 selection:bg-blue-500 selection:text-blue-100">
-                  About BookNStore
+                  BookNStore
                 </Link>
               </li>
             </ul>

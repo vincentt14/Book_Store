@@ -1,5 +1,3 @@
-import React from "react";
-
 const AboutPage = () => {
   return (
     <section className="pt-28 pb-24 lg:pt-36 lg:pb-32">
