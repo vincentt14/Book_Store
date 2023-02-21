@@ -5,16 +5,17 @@ import postedAt from "../utils/postedAt";
 interface BookItemProps {
   id: any;
   title: string;
+  img: string;
   author: string;
   description: string;
   postDate: string;
 }
 
-const BookItem: React.FC<BookItemProps> = ({ id, title, author, description, postDate }) => {
+const BookItem: React.FC<BookItemProps> = ({ id, img, title, author, description, postDate }) => {
   return (
     <div className="mb-12 p-4 md:w-1/4">
-      <div className="rounded-sm shadow-lg border-2 border-primary overflow-hidden ">
-        <img className="lazyload" alt="Discussion Forum" width={"w-full"} />
+      <div className="rounded-sm shadow-lg border-2 border-primary overflow-hidden bg-black opacity-30">
+        <img className="lazyload mx-auto" src={img} alt="Discussion Forum" width={"w-full"} />
       </div>
       <h3 className="font-semibold text-secondary text-xl mt-5 mb-3">
         <Link to={`/book/${id}`} className="cursor-pointer hover:text-primary">

@@ -6,13 +6,11 @@ import animationData from "../lotties/ideas-into-book.json";
 import BookList from "../components/BookList";
 import SearchInput from "../components/SearchInput";
 import dummyBooks from "../utils/local-data";
+import StatusUser from "../components/StatusUser";
 
 interface dummyProps {
   id: any;
   title: string;
-  author: string;
-  description: string;
-  postDate: string;
 }
 
 const HomePage = () => {
@@ -33,7 +31,7 @@ const HomePage = () => {
 
   const filteredBooks = books.filter((book) => {
     return book.title.toLowerCase().includes(keyword.toLowerCase());
-  })
+  });
 
   const defaultOptions = {
     loop: true,
@@ -76,22 +74,7 @@ const HomePage = () => {
                   <Link to="/add">Add A Book</Link>
                 </button>
               </div>
-              <div data-aos="fade-right" className="grid grid-cols-2 gap-0  mb-6 max-w-md text-slate-500 border-black border-2 bg-white py-2 bayangan_field">
-                <div className="grid grid-cols-3">
-                  <div className="col-1 col-span-1  font-bold text-2xl text-primary flex justify-center items-center">{books.length}</div>
-                  <div className="col-2 col-span-2">
-                    <p className="text-xs lg:text-base">Books</p>
-                    <p className="text-xs lg:text-base">Available</p>
-                  </div>
-                </div>
-                <div className="grid grid-cols-3">
-                  <div className="col-1 col-span-1  font-bold text-2xl text-primary flex justify-center items-center">{books.length}</div>
-                  <div className="col-2 col-span-2">
-                    <p className="text-xs lg:text-base">Books</p>
-                    <p className="text-xs lg:text-base">Saved</p>
-                  </div>
-                </div>
-              </div>
+              <StatusUser books={books} />
             </div>
             <div className="rounded-sm hidden md:block w-full self-end px-4 lg:w-1/2 bg-white bayangan border-2 border-primary ">
               <div className="mt-10 lg:right-0">
@@ -108,7 +91,7 @@ const HomePage = () => {
               <h4 className="font-semibold text-lg text-secondary mb-2">Books</h4>
               <h2 className="font-bold text-primary text-4xl mt-1 lg:text-5xl mb-4">Available Books</h2>
               <p className="font-medium text-md font-mono text-slate-500 lg:text-lg">
-                View book detail by clicking  <span className="text-secondary font-bold">the book title</span>
+                View book detail by clicking <span className="text-secondary font-bold">the book title</span>
               </p>
               <SearchInput keyword={keyword} keywordChange={onKeywordChangeHandler} />
             </div>
