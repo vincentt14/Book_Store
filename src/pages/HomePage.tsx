@@ -1,11 +1,40 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { Link, useSearchParams } from "react-router-dom";
 import Lottie from "react-lottie";
 import { Typewriter } from "react-simple-typewriter";
 import animationData from "../lotties/ideas-into-book.json";
 import BookList from "../components/BookList";
+import SearchInput from "../components/SearchInput";
+import dummyBooks from "../utils/local-data";
+
+interface dummyProps {
+  id: any;
+  title: string;
+  author: string;
+  description: string;
+  postDate: string;
+}
 
 const HomePage = () => {
+  const [searchParams, setSearchParams] = useSearchParams();
+  const [books, setBooks] = useState<dummyProps[]>([]);
+  const [keyword, setKeyword] = useState(() => {
+    return searchParams.get("keyword") || "";
+  });
+
+  const onKeywordChangeHandler = (keyword: any) => {
+    setKeyword(keyword);
+    setSearchParams({ keyword });
+  };
+
+  useEffect(() => {
+    setBooks(dummyBooks);
+  }, []);
+
+  const filteredBooks = books.filter((book) => {
+    return book.title.toLowerCase().includes(keyword.toLowerCase());
+  })
+
   const defaultOptions = {
     loop: true,
     autoplay: true,
@@ -31,7 +60,7 @@ const HomePage = () => {
               <h2 className="font-light text-primary text-lg mb-5 lg:text-2xl mt-2">
                 You can{" "}
                 <span style={{ color: "black", fontWeight: "400" }}>
-                  <Typewriter loop cursor cursorStyle="|" typeSpeed={70} deleteSpeed={70} delaySpeed={1500} words={["find your favourite book.", "review a book.", "rate a book.", "wishlist a book.", "add a book."]} />
+                  <Typewriter loop cursor cursorStyle="|" typeSpeed={70} deleteSpeed={70} delaySpeed={1500} words={["find your favourite books.", "review books.", "downloads books", "save books.", "add your own books."]} />
                 </span>
               </h2>
 
@@ -47,8 +76,23 @@ const HomePage = () => {
                   <Link to="/add">Add A Book</Link>
                 </button>
               </div>
+              <div data-aos="fade-right" className="grid grid-cols-2 gap-0  mb-6 max-w-md text-slate-500 border-black border-2 bg-white py-2 bayangan_field">
+                <div className="grid grid-cols-3">
+                  <div className="col-1 col-span-1  font-bold text-2xl text-primary flex justify-center items-center">{books.length}</div>
+                  <div className="col-2 col-span-2">
+                    <p className="text-xs lg:text-base">Books</p>
+                    <p className="text-xs lg:text-base">Available</p>
+                  </div>
+                </div>
+                <div className="grid grid-cols-3">
+                  <div className="col-1 col-span-1  font-bold text-2xl text-primary flex justify-center items-center">{books.length}</div>
+                  <div className="col-2 col-span-2">
+                    <p className="text-xs lg:text-base">Books</p>
+                    <p className="text-xs lg:text-base">Saved</p>
+                  </div>
+                </div>
+              </div>
             </div>
-
             <div className="rounded-sm hidden md:block w-full self-end px-4 lg:w-1/2 bg-white bayangan border-2 border-primary ">
               <div className="mt-10 lg:right-0">
                 <Lottie options={defaultOptions} height={400} width={400} />
@@ -64,14 +108,13 @@ const HomePage = () => {
               <h4 className="font-semibold text-lg text-secondary mb-2">Books</h4>
               <h2 className="font-bold text-primary text-4xl mt-1 lg:text-5xl mb-4">Available Books</h2>
               <p className="font-medium text-md font-mono text-slate-500 lg:text-lg">
-                See book detail and add reviews by clicking <span className="text-secondary font-bold">the title</span>
+                View book detail by clicking  <span className="text-secondary font-bold">the book title</span>
               </p>
+              <SearchInput keyword={keyword} keywordChange={onKeywordChangeHandler} />
             </div>
           </div>
         </div>
-        <div className="w-full px-4 flex flex-wrap justify-center xl:w-10/12 xl:mx-auto">
-          <BookList/>
-        </div>
+        <BookList books={filteredBooks} />
       </section>
     </>
   );

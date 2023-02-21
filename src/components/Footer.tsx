@@ -18,6 +18,11 @@ const Footer = () => {
             <ul className=" text-slate-400">
               <h3 className="font-semibold text-xl text-white mb-5  selection:bg-blue-500 selection:text-blue-100">Reach Me Out</h3>
               <li>
+                <a href="https://vincentt14.github.io/" target="blank" className="inline-block text-base hover:text-blue-500 mb-2 selection:bg-blue-500 selection:text-blue-100">
+                  Personal Website
+                </a>
+              </li>
+              <li>
                 <a href="https://github.com/vincentt14" target="blank" className="inline-block text-base hover:text-blue-500 mb-2 selection:bg-blue-500 selection:text-blue-100">
                   Github
                 </a>

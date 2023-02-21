@@ -1,6 +1,16 @@
+import React from "react";
 import { Link } from "react-router-dom";
+import postedAt from "../utils/postedAt";
 
-const BookItem = (id: any, title: string, author: string, description: string) => {
+interface BookItemProps {
+  id: any;
+  title: string;
+  author: string;
+  description: string;
+  postDate: string;
+}
+
+const BookItem: React.FC<BookItemProps> = ({ id, title, author, description, postDate }) => {
   return (
     <div className="mb-12 p-4 md:w-1/4">
       <div className="rounded-sm shadow-lg border-2 border-primary overflow-hidden ">
@@ -11,7 +21,12 @@ const BookItem = (id: any, title: string, author: string, description: string) =
           {title}
         </Link>
       </h3>
-      <p className="font-medium font-mono text-base text-slate-500">Written by :{author}</p>
+      <p className="font-medium font-mono text-base text-slate-500">
+        Author : <span className="text-primary">{author}</span>
+      </p>
+      <p className="font-medium font-mono text-base text-slate-500 mb-2">
+        Posted : <span className="text-primary">{postedAt(postDate)}</span>
+      </p>
       <p className="font-medium font-mono text-base text-slate-500">{description}</p>
     </div>
   );
