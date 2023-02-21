@@ -27,7 +27,7 @@ const Navbar = () => {
         <div className="container">
           <div className="flex items-center justify-between relative">
             <div className="px-4">
-              <Link to="home" className="cursor-pointer text-primary font-semibold text-lg block py-6">
+              <Link to="/" className="cursor-pointer text-primary font-semibold text-lg block py-6">
                 Book<span className="text-secondary ">N</span>Store
               </Link>
             </div>
