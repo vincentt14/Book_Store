@@ -20,7 +20,7 @@ const BookList: React.FC<BookListProps> = ({ books }): JSX.Element => {
     return (
       <section className="container w-full px-4 flex flex-wrap justify-center xl:w-10/12 xl:mx-auto">
         {books.map((book: any) => {
-          return <BookItem key={book.id} id={book.id} img={book.img} title={book.title} author={book.author} description={book.description} postDate={book.postedAt} />;
+          return <BookItem key={book.id} id={book.id} img={book.img} title={book.title} author={book.author} description={book.description} postDate={book.postedAt} saved={book.saved} />;
         })}
       </section>
     );
