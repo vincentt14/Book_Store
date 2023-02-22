@@ -5,7 +5,7 @@ import { Typewriter } from "react-simple-typewriter";
 import animationData from "../lotties/ideas-into-book.json";
 import BookList from "../components/BookList";
 import SearchInput from "../components/SearchInput";
-import dummyBooks from "../utils/local-data";
+import { getAllBooks } from "../utils/local-data";
 import StatusUser from "../components/StatusUser";
 
 interface dummyProps {
@@ -26,7 +26,7 @@ const HomePage = () => {
   };
 
   useEffect(() => {
-    setBooks(dummyBooks);
+    setBooks(getAllBooks());
   }, []);
 
   const filteredBooks = books.filter((book) => {
