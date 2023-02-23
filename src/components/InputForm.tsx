@@ -1,13 +1,32 @@
 import useInput from "../hooks/useInput";
+import { addBook, IAddBook } from "../utils/local-data";
+import { useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
 
 const InputForm = () => {
   const [judul, handleJudul] = useInput("");
   const [penulis, handlePenulis] = useInput("");
   const [deskripsi, handleDeskripsi] = useInput("");
+  const navigate = useNavigate();
 
   const submitHandler = (e: any) => {
     e.preventDefault();
-    console.log(judul, penulis, deskripsi);
+    const inputAddBook: IAddBook = {
+      title: judul,
+      author: penulis,
+      description: deskripsi,
+    };
+    if (addBook(inputAddBook)) {
+      Swal.fire({
+        title: "Done 🚀",
+        text: "Your book has been successfully added",
+        icon: "success",
+        showConfirmButton: false,
+      });
+      navigate("/");
+    } else {
+      // sweetalert gagal
+    }
   };
 
   return (
