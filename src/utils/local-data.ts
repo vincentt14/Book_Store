@@ -34,8 +34,15 @@ let dummyBooks: IBooks[] = [
   },
 ];
 
+// const defaultBookState = () => {
+//   const localData = localStorage.getItem("books");
+//   return localData ? JSON.parse(localData) : []
+// }
+
 const getAllBooks = (): IBooks[] => {
-  return dummyBooks;
+  localStorage.setItem('books', JSON.stringify(dummyBooks));
+  const dummy:any = localStorage.getItem('books');
+  return JSON.parse(dummy);
 };
 
 const getBook = (id: string): IBooks | undefined => {

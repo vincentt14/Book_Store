@@ -57,7 +57,7 @@ const Navbar = () => {
                     </Link>
                   </li>
                   <li className="group">
-                    <Link to="/wishlist" className="cursor-pointer text-primary text-base py-2 mx-8 flex group-hover:text-secondary" onClick={onToggleClick}>
+                    <Link to="/savedbooks" className="cursor-pointer text-primary text-base py-2 mx-8 flex group-hover:text-secondary" onClick={onToggleClick}>
                       Saved Books
                     </Link>
                   </li>

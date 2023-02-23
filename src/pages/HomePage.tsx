@@ -26,8 +26,9 @@ const HomePage = () => {
   };
 
   useEffect(() => {
+    localStorage.setItem("books", JSON.stringify(books));
     setBooks(getAllBooks());
-  }, []);
+  }, [books]);
 
   const filteredBooks = books.filter((book) => {
     return book.title.toLowerCase().includes(keyword.toLowerCase());
