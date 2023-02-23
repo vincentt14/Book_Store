@@ -25,7 +25,13 @@ const InputForm = () => {
       });
       navigate("/");
     } else {
-      // sweetalert gagal
+      Swal.fire({
+        title: "Oh no 🙁 ",
+        text: "your book failed to be added",
+        icon: "error",
+        showConfirmButton: false,
+      });
+      navigate("/");
     }
   };
 

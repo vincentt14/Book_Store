@@ -1,12 +1,10 @@
-import React from "react";
-
 interface IBooks {
   id: string;
   title: string;
   img: string;
   author: string;
   description: string;
-  postDate: any;
+  postDate: string;
   saved: boolean;
 }
 
@@ -57,7 +55,7 @@ const addBook = (props: IAddBook): boolean => {
     title: props.title,
     author: props.author,
     description: props.description,
-    postDate: new Date(),
+    postDate: new Date().toISOString(),
     saved: false,
   };
 

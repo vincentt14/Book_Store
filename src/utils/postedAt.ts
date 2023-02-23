@@ -1,4 +1,4 @@
-const postedAt = (date: any) => {
+const postedAt = (date: string) => {
   const now:any = new Date();
   const posted:any = new Date(date);
   const diff = now - posted;
